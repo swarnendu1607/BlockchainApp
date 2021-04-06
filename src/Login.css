@@ -1,0 +1,17 @@
+.login {
+  margin-top: 10px;
+  box-shadow: 5px 10px 18px rgb(195, 182, 241);
+  background-color: #918af0;
+  width: 30%;
+}
+.loginForm {
+  display: flex;
+  margin: 10px 10px 0px 10px;
+}
+.TextField {
+  background-color: rgb(239, 231, 245) !important;
+}
+.loginButton {
+  margin: 10px 0px 5px 0px;
+  background-color: rgb(74, 106, 165);
+}
