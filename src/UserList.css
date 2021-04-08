@@ -1,0 +1,12 @@
+.userListBody {
+  background-color: rgba(182, 174, 171, 0.5);
+  height: 1100px;
+}
+.userListHeader {
+  color: rgb(226, 45, 45);
+  margin-bottom: 50px;
+  font-family: Copperplate, Papyrus, fantasy;
+  text-shadow: 2px 2px #7b67fa, 3px 3px #937bf3, 2px 2px #ee0011;
+  animation: shadow-move 2s ease-in-out infinite alternate;
+  /* background-image: url("./login.svg"); */
+}
