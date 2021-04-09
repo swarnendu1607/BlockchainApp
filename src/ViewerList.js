@@ -6,24 +6,25 @@ import { DataGrid, GridRowsProp, GridColDef } from "@material-ui/data-grid";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "./UserList.css";
-import Dialog from "@material-ui/core/Dialog";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import ViewerList from "./ViewerList";
+import UserList from "./UserList";
 
 const riceFilterModel = {
   items: [
     { columnField: "commodity", operatorValue: "contains", value: "rice" },
   ],
 };
-function UserList() {
+function ViewerList() {
   const [open, setOpen] = React.useState(false);
   const [showMore, setShowMore] = React.useState(false);
-  const [selectMal, setSelectMal] = React.useState(true);
-  const [selectverfied, setSelectverfied] = React.useState(false);
+  const [selectMal, setSelectMal] = React.useState(false);
+  const [selectverfied, setSelectverfied] = React.useState(true);
   const [userName, setUserName] = React.useState("");
   const [report, setReport] = React.useState([]);
   const [signatureState, setSignatureState] = React.useState("");
@@ -72,14 +73,14 @@ function UserList() {
   const columns: GridColDef[] = [
     {
       field: "account_name",
-      headerName: "Account NAME",
+      headerName: "Account Name",
       headerClassName: "super-app-theme--header",
       cellClassName: "super-app-theme--cell",
       flex: 0.3,
     },
     {
-      field: "report_count",
-      headerName: "TOTAL REPORT",
+      field: "signature",
+      headerName: "Signature",
       headerClassName: "super-app-theme--header",
       cellClassName: (params) =>
         clsx("super-app", {
@@ -90,7 +91,7 @@ function UserList() {
       flex: 0.3,
     },
     {
-      field: "DETAILS",
+      field: "Details",
       headerClassName: "super-app-theme--header",
       renderCell: (params) => (
         <strong>
@@ -119,6 +120,7 @@ function UserList() {
     root: {
       "& .super-app-theme--header": {
         backgroundColor: "rgba(148, 176, 255, 0.5)",
+        fontWeight: "600",
       },
       "& .super-app-theme--cell": {
         backgroundColor: "rgba(255, 254, 235, 1)",
@@ -142,7 +144,7 @@ function UserList() {
   let ReportDisplay = getReview();
   return (
     <>
-      {selectMal ? (
+      {selectverfied ? (
         <div className="userListBody">
           <div className="userListButtonGroup">
             <ButtonGroup disableElevation variant="contained" color="primary">
@@ -166,9 +168,15 @@ function UserList() {
             </ButtonGroup>
           </div>
           <h1 style={{ textAlign: "left" }} className="userListHeader">
-            Malicious Account
+            Trusted Contracts
           </h1>
-          <div style={{ height: 650, width: "100%" }} className={classes.root}>
+          <div
+            style={{
+              height: 650,
+              width: "100%",
+            }}
+            className={classes.root}
+          >
             <DataGrid
               rows={rows}
               columns={columns}
@@ -205,7 +213,7 @@ function UserList() {
                     padding: "0.5rem",
                   }}
                 >
-                  Account Name : {userName}
+                  Account : {userName}
                 </label>
               </div>
               <div>
@@ -293,9 +301,9 @@ function UserList() {
           </Dialog>
         </div>
       ) : null}
-      <div>{selectverfied ? <ViewerList /> : null}</div>
+      <div>{selectMal ? <UserList /> : null}</div>
     </>
   );
 }
 
-export default UserList;
+export default ViewerList;

@@ -3,8 +3,8 @@ import "./Header.css";
 
 function Header() {
   return (
-    <div className="header">
-      <h1>MANAGED SECURITY SERVICES</h1>
+    <div>
+      <h1 className="header">MANAGED SECURITY SERVICES</h1>
     </div>
   );
 }

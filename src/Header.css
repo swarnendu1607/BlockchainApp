@@ -1,7 +1,9 @@
 .header {
   color: cornsilk;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   font-family: Copperplate, Papyrus, fantasy;
-  text-shadow: 2px 2px #7b67fa, 3px 3px #937bf3, 2px 2px #ee0011;
+  text-shadow: 2px 2px #000000, 1px 1px #f5ebea, 1px 1px #f5f3f3;
   animation: shadow-move 2s ease-in-out infinite alternate;
+  position: sticky;
+  top: 1.4rem;
 }
