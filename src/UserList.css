@@ -1,12 +1,14 @@
 .userListBody {
-  background-color: rgba(182, 174, 171, 0.5);
+  /* background-color: rgba(182, 174, 171, 0.5); */
+  background-color: rgba(255, 255, 255, 0.5);
   height: 1100px;
 }
 .userListHeader {
-  color: rgb(226, 45, 45);
+  color: rgb(226, 132, 45);
   margin-bottom: 50px;
-  font-family: Copperplate, Papyrus, fantasy;
-  text-shadow: 2px 2px #7b67fa, 3px 3px #937bf3, 2px 2px #ee0011;
+  /* font-family: Copperplate, Papyrus, fantasy; */
+  font-family: 'Times New Roman', Times, serif;
+  /* text-shadow: 2px 2px #7b67fa, 3px 3px #bff37b, 2px 2px #eec200; */
   animation: shadow-move 2s ease-in-out infinite alternate;
-  /* background-image: url("./login.svg"); */
+  /* background-image: url("./homePic.jpg"); */
 }

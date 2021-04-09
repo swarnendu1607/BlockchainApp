@@ -18,7 +18,7 @@ const riceFilterModel = {
     { columnField: "commodity", operatorValue: "contains", value: "rice" },
   ],
 };
-function UserList() {
+function ViewerList() {
   const [open, setOpen] = React.useState(false);
   const [showMore, setShowMore] = React.useState(false);
   const [userName, setUserName] = React.useState("");
@@ -69,14 +69,14 @@ function UserList() {
   const columns: GridColDef[] = [
     {
       field: "account_name",
-      headerName: "Account",
+      headerName: "Account Name",
       headerClassName: "super-app-theme--header",
       cellClassName: "super-app-theme--cell",
       flex: 0.3,
     },
     {
-      field: "report_count",
-      headerName: "Total Reports",
+      field: "signature",
+      headerName: "Signature",
       headerClassName: "super-app-theme--header",
       cellClassName: (params) =>
         clsx("super-app", {
@@ -95,7 +95,7 @@ function UserList() {
             variant="contained"
             color="primary"
             size="small"
-            style={{ marginLeft: 16 }}
+            style={{ marginLeft: 16,  }}
             onClick={() =>
               handelClickShowDetails(
                 params.getValue("account_name"),
@@ -116,10 +116,12 @@ function UserList() {
     root: {
       "& .super-app-theme--header": {
         backgroundColor: "rgba(148, 176, 255, 0.5)",
+        fontWeight: "600",
       },
       "& .super-app-theme--cell": {
         backgroundColor: "rgba(255, 254, 235, 1)",
         fontWeight: "600",
+
       },
       "& .super-app.negative": {
         backgroundColor: "rgba(157, 255, 118, 0.49)",
@@ -140,9 +142,11 @@ function UserList() {
   return (
     <div className="userListBody">
       <h1 style={{ textAlign: "left" }} className="userListHeader">
-        Malicious Account
+        Trusted Contracts
       </h1>
-      <div style={{ height: 650, width: "100%" }} className={classes.root}>
+      <div style={{
+        height: 650, width: "100%",
+      }} className={classes.root}>
         <DataGrid
           rows={rows}
           columns={columns}
@@ -191,7 +195,7 @@ function UserList() {
                 padding: "0.5rem",
               }}
             >
-              Signature : {signatureState}
+              User Signature : {signatureState}
             </label>
           </div>
         </DialogContent>
@@ -231,7 +235,7 @@ function UserList() {
                 padding: "0.5rem",
               }}
             >
-              Account : {userName}
+              Account Name : {userName}
             </label>
           </div>
           <div>
@@ -243,7 +247,7 @@ function UserList() {
                 padding: "0.5rem",
               }}
             >
-              Signature : {signatureState}
+              User Signature : {signatureState}
             </label>
           </div>
           <div>
@@ -265,4 +269,4 @@ function UserList() {
   );
 }
 
-export default UserList;
+export default ViewerList;
