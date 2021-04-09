@@ -101,7 +101,7 @@ function UserList(props) {
             style={{ marginLeft: 16 }}
             onClick={() =>
               handelClickShowDetails(
-                params.getValue("email"),
+                params.getValue("account_name"),
                 params.getValue("signature"),
                 params.getValue("report")
               )
@@ -144,29 +144,8 @@ function UserList(props) {
     <>
       {selectMal ? (
         <div className="userListBody">
-          <div className="userListButtonGroup">
-            <ButtonGroup disableElevation variant="contained" color="primary">
-              <Button
-                style={{ marginRight: "1rem" }}
-                onClick={() => {
-                  setSelectMal(true);
-                  setSelectverfied(false);
-                }}
-              >
-                Malicious Contract
-              </Button>
-              <Button
-                onClick={() => {
-                  setSelectMal(false);
-                  setSelectverfied(true);
-                }}
-              >
-                Trusted Contract
-              </Button>
-            </ButtonGroup>
-          </div>
           <h1 style={{ textAlign: "left" }} className="userListHeader">
-            Malicious Contract
+            Malicious Account
           </h1>
           <div style={{ height: 650, width: "100%" }} className={classes.root}>
             <DataGrid

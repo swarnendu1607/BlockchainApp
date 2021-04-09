@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./user.json";
+import data from "./TrustedContract.json";
 import clsx from "clsx";
 import { GridToolbar } from "@material-ui/data-grid";
 import { DataGrid, GridRowsProp, GridColDef } from "@material-ui/data-grid";
@@ -21,7 +21,6 @@ const riceFilterModel = {
 };
 function ViewerList(props) {
   const [open, setOpen] = React.useState(false);
-  const [showMore, setShowMore] = React.useState(false);
   const [selectMal, setSelectMal] = React.useState(false);
   const [selectverfied, setSelectverfied] = React.useState(true);
   const [userName, setUserName] = React.useState("");
@@ -32,18 +31,11 @@ function ViewerList(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleShowMoreClose = () => {
-    setShowMore(false);
-  };
   const handelClickShowDetails = (name, sig, rep) => {
     setUserName(name);
     setSignatureState(sig);
     setReport(rep);
     setOpen(true);
-  };
-  const handleShowMore = () => {
-    setShowMore(true);
-    setOpen(false);
   };
   const getReview = () => {
     console.log(report);
@@ -57,7 +49,7 @@ function ViewerList(props) {
         >
           <label
             style={{
-              backgroundColor: "rgba(244, 159, 159, 0.5)",
+              backgroundColor: "rgba(139, 241, 132, 0.5)",
               width: "100%",
               padding: "0.5rem",
             }}
@@ -71,8 +63,8 @@ function ViewerList(props) {
   };
   const columns: GridColDef[] = [
     {
-      field: "account_name",
-      headerName: "Account Name",
+      field: "email",
+      headerName: "Account",
       headerClassName: "super-app-theme--header",
       cellClassName: "super-app-theme--cell",
       flex: 0.3,
@@ -101,9 +93,9 @@ function ViewerList(props) {
             style={{ marginLeft: 16 }}
             onClick={() =>
               handelClickShowDetails(
-                params.getValue("account_name"),
+                params.getValue("email"),
                 params.getValue("signature"),
-                params.getValue("report")
+                params.getValue("contract")
               )
             }
           >
@@ -155,7 +147,7 @@ function ViewerList(props) {
                     setSelectverfied(false);
                   }}
                 >
-                  Malicious Account
+                  Malicious Contract
                 </Button>
                 <Button
                   onClick={() => {
@@ -163,13 +155,13 @@ function ViewerList(props) {
                     setSelectverfied(true);
                   }}
                 >
-                  Trusted Contracts
+                  Trusted Contract
                 </Button>
               </ButtonGroup>
             </div>
           ) : null}
           <h1 style={{ textAlign: "left" }} className="userListHeader">
-            Trusted Contracts
+            Trusted Contract
           </h1>
           <div
             style={{
@@ -229,74 +221,14 @@ function ViewerList(props) {
                   User Signature : {signatureState}
                 </label>
               </div>
-            </DialogContent>
-            <DialogActions>
-              <Button
-                variant="contained"
-                onClick={handleShowMore}
-                color="primary"
-              >
-                Show more
-              </Button>
-              <Button variant="contained" onClick={handleClose} color="primary">
-                Cancel
-              </Button>
-            </DialogActions>
-          </Dialog>
-
-          <Dialog
-            open={showMore}
-            onClose={handleClose}
-            aria-labelledby="form-dialog-title"
-          >
-            <DialogTitle id="form-dialog-title">Report Details</DialogTitle>
-            <DialogContent>
-              <DialogContentText
-                style={{
-                  width: "100%",
-                  height: "2.5rem",
-                  padding: "0.5rem",
-                  fontWeight: "600",
-                }}
-              >
-                Report we got till now on this Malicious Account.
-              </DialogContentText>
               <div>
-                <label
-                  style={{
-                    backgroundColor: "rgba(199, 203, 204, 0.5)",
-                    width: "100%",
-                    height: "2.5rem",
-                    padding: "0.5rem",
-                  }}
-                >
-                  Account Name : {userName}
-                </label>
-              </div>
-              <div>
-                <label
-                  style={{
-                    backgroundColor: "rgba(199, 203, 204, 0.5)",
-                    width: "100%",
-                    height: "2.5rem",
-                    padding: "0.5rem",
-                  }}
-                >
-                  User Signature : {signatureState}
-                </label>
-              </div>
-              <div>
-                <label>Report messages:</label>
+                <label>Verified contracts:</label>
                 {ReportDisplay}
               </div>
             </DialogContent>
             <DialogActions>
-              <Button
-                variant="contained"
-                onClick={handleShowMoreClose}
-                color="primary"
-              >
-                Cancel
+              <Button variant="contained" onClick={handleClose} color="primary">
+                close
               </Button>
             </DialogActions>
           </Dialog>

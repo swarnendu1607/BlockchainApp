@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import UserList from "./UserList";
 import malicious from "./mal.jpg";
+import MaliciousAccount from "./MaliciousAccount";
 import verified from "./verfied.jpg";
 import { Report, Forward, Pageview } from "@material-ui/icons/";
 // const fs = require("browserify-fs");
@@ -29,8 +30,8 @@ function Login() {
   const [open, setOpen] = React.useState(false);
   const [showPop, setShowPop] = React.useState(false);
 
-  const user = [ "abcd1@user", "abcd2@user", "abcd3@user"];
-  const developer = [ "abcd1@dev", "abcd2@dev", "abcd3@dev"];
+  const user = ["a", "abcd1@user", "abcd2@user", "abcd3@user"];
+  const contract = ["d", "abcd1@dev", "abcd2@dev", "abcd3@dev"];
   const maliciouContract = ["mal1@contract", "mal2@contract"];
 
   const handleClickOpen = () => {
@@ -143,7 +144,7 @@ function Login() {
                 console.log(userName);
                 if (
                   user.indexOf(userName) >= 0 ||
-                  developer.indexOf(userName) >= 0
+                  contract.indexOf(userName) >= 0
                 ) {
                   setValid(true);
                   if (user.indexOf(userName) >= 0) {
@@ -248,9 +249,8 @@ function Login() {
         </div>
       ) : null}
 
-      <div>
-        {validProceed ? <UserList isUser={isUser} isDevloper={isDev} /> : null}
-      </div>
+      <div>{validProceed && !isDev ? <UserList /> : null}</div>
+      <div>{validProceed && isDev ? <MaliciousAccount /> : null}</div>
     </>
   );
 }

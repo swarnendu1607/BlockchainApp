@@ -11,4 +11,5 @@
   animation: shadow-move 2s ease-in-out infinite alternate;
 }
 .userListButtonGroup {
+  display: flex;
 }
