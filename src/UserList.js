@@ -19,7 +19,7 @@ const riceFilterModel = {
     { columnField: "commodity", operatorValue: "contains", value: "rice" },
   ],
 };
-function UserList() {
+function UserList(props) {
   const [open, setOpen] = React.useState(false);
   const [showMore, setShowMore] = React.useState(false);
   const [selectMal, setSelectMal] = React.useState(true);
@@ -142,7 +142,7 @@ function UserList() {
   let ReportDisplay = getReview();
   return (
     <>
-      {selectMal ? (
+      {selectMal && props.isDevloper ? (
         <div className="userListBody">
           <div className="userListButtonGroup">
             <ButtonGroup disableElevation variant="contained" color="primary">
@@ -153,7 +153,7 @@ function UserList() {
                   setSelectverfied(false);
                 }}
               >
-                Malicious Account
+                Malicious Contract
               </Button>
               <Button
                 onClick={() => {
@@ -166,7 +166,7 @@ function UserList() {
             </ButtonGroup>
           </div>
           <h1 style={{ textAlign: "left" }} className="userListHeader">
-            Malicious Account
+            Malicious Contract
           </h1>
           <div style={{ height: 650, width: "100%" }} className={classes.root}>
             <DataGrid
@@ -293,7 +293,11 @@ function UserList() {
           </Dialog>
         </div>
       ) : null}
-      <div>{selectverfied ? <ViewerList /> : null}</div>
+      <div>
+        {selectverfied || props.isUser ? (
+          <ViewerList isUser={props.isUser} isDevloper={true} />
+        ) : null}
+      </div>
     </>
   );
 }

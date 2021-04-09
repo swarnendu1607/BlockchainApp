@@ -7,7 +7,6 @@ import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "./UserList.css";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -20,7 +19,7 @@ const riceFilterModel = {
     { columnField: "commodity", operatorValue: "contains", value: "rice" },
   ],
 };
-function ViewerList() {
+function ViewerList(props) {
   const [open, setOpen] = React.useState(false);
   const [showMore, setShowMore] = React.useState(false);
   const [selectMal, setSelectMal] = React.useState(false);
@@ -146,27 +145,29 @@ function ViewerList() {
     <>
       {selectverfied ? (
         <div className="userListBody">
-          <div className="userListButtonGroup">
-            <ButtonGroup disableElevation variant="contained" color="primary">
-              <Button
-                style={{ marginRight: "1rem" }}
-                onClick={() => {
-                  setSelectMal(true);
-                  setSelectverfied(false);
-                }}
-              >
-                Malicious Account
-              </Button>
-              <Button
-                onClick={() => {
-                  setSelectMal(false);
-                  setSelectverfied(true);
-                }}
-              >
-                Trusted Contracts
-              </Button>
-            </ButtonGroup>
-          </div>
+          {!props.isUser ? (
+            <div className="userListButtonGroup">
+              <ButtonGroup disableElevation variant="contained" color="primary">
+                <Button
+                  style={{ marginRight: "1rem" }}
+                  onClick={() => {
+                    setSelectMal(true);
+                    setSelectverfied(false);
+                  }}
+                >
+                  Malicious Account
+                </Button>
+                <Button
+                  onClick={() => {
+                    setSelectMal(false);
+                    setSelectverfied(true);
+                  }}
+                >
+                  Trusted Contracts
+                </Button>
+              </ButtonGroup>
+            </div>
+          ) : null}
           <h1 style={{ textAlign: "left" }} className="userListHeader">
             Trusted Contracts
           </h1>
@@ -301,7 +302,11 @@ function ViewerList() {
           </Dialog>
         </div>
       ) : null}
-      <div>{selectMal ? <UserList /> : null}</div>
+      <div>
+        {selectMal ? (
+          <UserList isUser={props.isUser} isDeveloper={true} />
+        ) : null}
+      </div>
     </>
   );
 }

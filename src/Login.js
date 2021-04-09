@@ -21,13 +21,17 @@ function Login() {
   const [userName, setUserName] = useState("");
   const [review, setReview] = useState("");
   const [subject, setSubject] = useState("");
+  const [isUser, setIsUser] = useState(false);
+  const [isDev, setIsDev] = useState(false);
   const [valid, setValid] = useState(false);
+  const [isMalContract, setIsMalContract] = useState(false);
   const [validProceed, setValidProceed] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [showPop, setShowPop] = React.useState(false);
 
-  const user = ["a", "abcd1@user", "abcd2@user", "abcd3@user"];
-  const developer = ["abcd1@dev", "abcd2@dev", "abcd3@dev"];
+  const user = [ "abcd1@user", "abcd2@user", "abcd3@user"];
+  const developer = [ "abcd1@dev", "abcd2@dev", "abcd3@dev"];
+  const maliciouContract = ["mal1@contract", "mal2@contract"];
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -142,6 +146,13 @@ function Login() {
                   developer.indexOf(userName) >= 0
                 ) {
                   setValid(true);
+                  if (user.indexOf(userName) >= 0) {
+                    setIsUser(true);
+                    setIsDev(false);
+                  } else {
+                    setIsUser(false);
+                    setIsDev(true);
+                  }
                 } else {
                   setValid(false);
                 }
@@ -237,7 +248,9 @@ function Login() {
         </div>
       ) : null}
 
-      <div>{validProceed ? <UserList /> : null}</div>
+      <div>
+        {validProceed ? <UserList isUser={isUser} isDevloper={isDev} /> : null}
+      </div>
     </>
   );
 }
