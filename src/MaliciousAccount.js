@@ -83,9 +83,12 @@ function UserList(props) {
       headerClassName: "super-app-theme--header",
       cellClassName: (params) =>
         clsx("super-app", {
-          negative: params.value < 3,
-          positive: params.value > 8,
-          moderate: params.value >= 3 && params.value < 8,
+          negative: params.value < 100,
+          positive: params.value > 100,
+          lightGreen: params.value >= 100 && params.value < 300,
+          moderate: params.value >= 300 && params.value < 500,
+          yellow: params.value >= 500 && params.value < 750,
+          blacklist: params.value >= 1000,
         }),
       flex: 0.3,
     },
@@ -125,7 +128,7 @@ function UserList(props) {
         fontWeight: "600",
       },
       "& .super-app.negative": {
-        backgroundColor: "rgba(157, 255, 118, 0.49)",
+        backgroundColor: "rgba(32, 173, 0, 0.87)",
         fontWeight: "600",
       },
       "& .super-app.positive": {
@@ -133,7 +136,19 @@ function UserList(props) {
         fontWeight: "600",
       },
       "& .super-app.moderate": {
-        backgroundColor: "rgba(224, 183, 60, 0.55)",
+        backgroundColor: "rgba(255, 243, 168, 1)",
+        fontWeight: "600",
+      },
+      "& .super-app.blacklist": {
+        backgroundColor: "rgba(182, 2, 2, 1)",
+        fontWeight: "600",
+      },
+      "& .super-app.yellow": {
+        backgroundColor: "rgba(255, 224, 26, 1)",
+        fontWeight: "600",
+      },
+      "& .super-app.lightGreen": {
+        backgroundColor: "rgba(205, 255, 194, 1)",
         fontWeight: "600",
       },
     },

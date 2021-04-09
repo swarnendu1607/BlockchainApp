@@ -1,6 +1,7 @@
 import React from "react";
 import data from "./TrustedContract.json";
 import clsx from "clsx";
+import certificate from "./certi.jpg";
 import { GridToolbar } from "@material-ui/data-grid";
 import { DataGrid, GridRowsProp, GridColDef } from "@material-ui/data-grid";
 import { Button } from "@material-ui/core";
@@ -195,7 +196,7 @@ function ViewerList(props) {
                   fontWeight: "600",
                 }}
               >
-                Detail Information About The Malicious Account.
+                Detail Information
               </DialogContentText>
               <div>
                 <label
@@ -206,24 +207,24 @@ function ViewerList(props) {
                     padding: "0.5rem",
                   }}
                 >
-                  Account : {userName}
+                  {signatureState}
                 </label>
               </div>
               <div>
-                <label
-                  style={{
-                    backgroundColor: "rgba(199, 203, 204, 0.5)",
-                    width: "100%",
-                    height: "2.5rem",
-                    padding: "0.5rem",
-                  }}
-                >
-                  User Signature : {signatureState}
-                </label>
-              </div>
-              <div>
-                <label>Verified contracts:</label>
-                {ReportDisplay}
+                <label>contracts Details</label>
+                <div>
+                  {" "}
+                  <img
+                    src={certificate}
+                    className="App-logo"
+                    alt="logo"
+                    style={{
+                      marginTop: "2rem",
+                      width: "400px",
+                      height: "300px",
+                    }}
+                  />
+                </div>
               </div>
             </DialogContent>
             <DialogActions>
