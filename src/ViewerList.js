@@ -147,6 +147,7 @@ function ViewerList(props) {
                     setSelectMal(true);
                     setSelectverfied(false);
                   }}
+                  className={`sidebarRow ${selectMal && "selected"}`}
                 >
                   Malicious Contract
                 </Button>
@@ -155,6 +156,7 @@ function ViewerList(props) {
                     setSelectMal(false);
                     setSelectverfied(true);
                   }}
+                  className={`sidebarRow ${selectverfied && "selected"}`}
                 >
                   Trusted Contract
                 </Button>

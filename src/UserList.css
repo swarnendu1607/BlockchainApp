@@ -13,3 +13,6 @@
 .userListButtonGroup {
   display: flex;
 }
+.sidebarRow.selected {
+  background-color: rgb(167, 161, 161);
+}

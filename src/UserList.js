@@ -167,6 +167,7 @@ function UserList(props) {
                   setSelectMal(true);
                   setSelectverfied(false);
                 }}
+                className={`sidebarRow ${selectMal && "selected"}`}
               >
                 Malicious Contract
               </Button>
@@ -175,6 +176,7 @@ function UserList(props) {
                   setSelectMal(false);
                   setSelectverfied(true);
                 }}
+                className={`sidebarRow ${selectverfied && "selected"}`}
               >
                 Trusted Contract
               </Button>

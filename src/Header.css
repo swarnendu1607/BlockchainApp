@@ -5,5 +5,18 @@
   text-shadow: 2px 2px #000000, 1px 1px #f5ebea, 1px 1px #f5f3f3;
   animation: shadow-move 2s ease-in-out infinite alternate;
   position: sticky;
+  padding-left: 700px;
   top: 1.4rem;
+}
+.fullHeader {
+  display: flex;
+  align-items: center;
+}
+.HeaderLabel {
+  color: #f5f3f3;
+  font-size: 13px;
+  padding-left: 300px;
+}
+.HeaderAvatar {
+  margin-left: 10px;
 }
