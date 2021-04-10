@@ -104,7 +104,7 @@ function UserList(props) {
             style={{ marginLeft: 16 }}
             onClick={() =>
               handelClickShowDetails(
-                params.getValue("account_name"),
+                params.getValue("email"),
                 params.getValue("signature"),
                 params.getValue("report")
               )

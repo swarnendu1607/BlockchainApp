@@ -186,14 +186,11 @@ function ViewerList(props) {
             onClose={handleClose}
             aria-labelledby="form-dialog-title"
           >
-            <DialogTitle id="form-dialog-title">User Details</DialogTitle>
+            <DialogTitle id="form-dialog-title">Contract Details</DialogTitle>
             <DialogContent>
               <DialogContentText
                 style={{
-                  width: "100%",
-                  height: "2.5rem",
-                  padding: "0.5rem",
-                  fontWeight: "600",
+                  fontWeight: "550",
                 }}
               >
                 Detail Information
@@ -211,7 +208,7 @@ function ViewerList(props) {
                 </label>
               </div>
               <div>
-                <label>contracts Details</label>
+                <label>Contract Details</label>
                 <div>
                   {" "}
                   <img

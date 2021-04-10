@@ -15,6 +15,7 @@ import UserList from "./UserList";
 import malicious from "./mal.jpg";
 import MaliciousAccount from "./MaliciousAccount";
 import verified from "./verfied.jpg";
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { Report, Forward, Pageview } from "@material-ui/icons/";
 // const fs = require("browserify-fs");
 
@@ -26,6 +27,7 @@ function Login() {
   const [isDev, setIsDev] = useState(false);
   const [valid, setValid] = useState(false);
   const [isMalContract, setIsMalContract] = useState(false);
+
   const [validProceed, setValidProceed] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [showPop, setShowPop] = React.useState(false);
@@ -33,6 +35,7 @@ function Login() {
   const user = ["a", "abcd1@user", "abcd2@user", "abcd3@user"];
   const contract = ["d", "abcd1@dev", "abcd2@dev", "abcd3@dev"];
   const maliciouContract = ["mal1@contract", "mal2@contract"];
+  const maliciouAccount = ["mal1@account", "mal2@account"];
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -186,7 +189,7 @@ function Login() {
                 setValidProceed(true);
               }}
             >
-              PROCEED <Forward />
+              LOGIN <VpnKeyIcon />
             </Button>
           </div>
           <Dialog
