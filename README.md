@@ -4,7 +4,7 @@ The project is Dockerized so just two simple commands and it is good to go
 
 ## Pre-requisite
 
-Make sure whereever you are running this you have Docker installed there
+Make sure wherever you are running this you have Docker installed there
 It can be your local/laptop or any centos/ubuntu server
 
 ### Follow this to get Docker in your system
